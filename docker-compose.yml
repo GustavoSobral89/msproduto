@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_fase4
+    environment:
+      POSTGRES_DB: fase4
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fase4_network
+
+volumes:
+  postgres_data:
+
+networks:
+  fase4_network:
+    driver: bridge
